@@ -72,9 +72,10 @@ const ScrollFX = styled.div`
   height: 100vh;
   left: 0;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
 
   &::-webkit-scrollbar {
-    height: 16px;
+    height: 0px;
   }
 
   &::-webkit-scrollbar-track {
