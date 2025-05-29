@@ -16,7 +16,7 @@ const boxVariants = {
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 0.8,
+      duration: 1,
     },
   },
 };
@@ -40,13 +40,19 @@ const ScrollEffect = () => {
             key={index}
             initial="hidden"
             whileInView="visible"
-            whileHover={{ clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)", scale: 1.05, transition:{ type: "spring", duration: .8, bounce: .5 } }}
+            whileHover={{
+                clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
+                scale: 1.2,
+                marginLeft: 60,
+                marginRight: 60,
+                transition: { ease:["easeOut", "easeIn"], duration: .5 }
+            }}
             variants={boxVariants}  
             viewport={{ once: false, amount: 0.01 }}
             style={{ flex: `0 0 ${width}px` }}
         >
               <Image src={src} alt={`image-${index + 1}`} height={500} width={width} />
-              <Info>hmmmm…</Info>
+              <Info>&copy; hmmmm…</Info>
         </Box>
       ))}
     </ScrollFX>
