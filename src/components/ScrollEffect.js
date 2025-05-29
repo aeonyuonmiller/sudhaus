@@ -15,7 +15,7 @@ const boxVariants = {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
     transition: {
       type: 'spring',
-      bounce: 0.4,
+      bounce: 0.5,
       duration: 1,
     },
   },
