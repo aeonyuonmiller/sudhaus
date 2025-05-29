@@ -8,17 +8,19 @@ const containerVariants = {
 };
 
 const boxVariants = {
-  hidden: {
-    clipPath: 'polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)',
-  },
-  visible: {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-    transition: {
-      type: 'spring',
-      bounce: 0.3,
-      duration: 1,
+    hidden: {
+        x: 150,
+        clipPath: 'polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)',
     },
-  },
+    visible: {
+        x: 0,
+        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        transition: {
+            type: 'spring',
+            bounce: 0.3,
+            duration: 1,
+        },
+    },
 };
 
 const ScrollEffect = () => {
@@ -75,7 +77,7 @@ const ScrollFX = styled.div`
   scrollbar-gutter: stable both-edges;
 
   &::-webkit-scrollbar {
-    height: 0px;
+    height: 16px;
   }
 
   &::-webkit-scrollbar-track {
