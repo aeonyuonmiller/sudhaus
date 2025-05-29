@@ -43,8 +43,6 @@ const ScrollEffect = () => {
             whileHover={{
                 clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
                 scale: 1.2,
-                marginLeft: 60,
-                marginRight: 60,
                 transition: { ease:["easeOut", "easeIn"], duration: .5 }
             }}
             variants={boxVariants}  
