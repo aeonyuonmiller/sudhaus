@@ -15,7 +15,7 @@ const boxVariants = {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
     transition: {
       type: 'spring',
-      bounce: 0.5,
+      bounce: 0.3,
       duration: 1,
     },
   },
@@ -41,8 +41,8 @@ const ScrollEffect = () => {
             initial="hidden"
             whileInView="visible"
             whileHover={{
-                clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
-                scale: 1.2,
+                clipPath: "polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%)",
+                scale: 1.1,
                 transition: { ease:["easeOut", "easeIn"], duration: .5 }
             }}
             variants={boxVariants}  
@@ -59,12 +59,12 @@ const ScrollEffect = () => {
 
 export default ScrollEffect;
 
-// 👇 Styled Components (No scrollbar CSS removed!)
 const ScrollFX = styled.div`
   position: absolute;
   display: flex;
   gap: 40px;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   align-items: center;
   justify-content: center;

@@ -1,5 +1,7 @@
 import Head from "next/head";
 // import Image from "next/image";
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import ScrollEffect from '@/components/ScrollEffect'
@@ -25,8 +27,8 @@ export default function Home() {
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
         <ScrollEffect />
-        
-        <div className="businesscard">
+
+        <motion.div className="businesscard">
           <span>
             <h1>Am Sudhaus</h1>
             <p>Fördergesellschaft für<br/>
@@ -39,7 +41,7 @@ export default function Home() {
             </p>
             <a href="mailto:info@amsudhaus-berlin.de">info@amsudhaus-berlin.de</a>
           </span>
-        </div>
+        </motion.div>
         
 
         <footer>
