@@ -24,7 +24,7 @@ const boxVariants = {
 const ScrollEffect = () => {
   const images = Array.from({ length: 12 }).map((_, i) => ({
     src: `/assets/medias/${i + 1}.jpg`,
-    width: i % 2 === 0 ? 800 : 400,
+    width: i % 2 === 0 ? 800 : 500,
   }));
 
   return (
