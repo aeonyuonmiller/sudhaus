@@ -1,12 +1,18 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ccc;
+  --foreground: whitesmoke;
+  --text: #1e1e1e;
+  --link: rgb(0, 30, 255);
+  --footertext: #1e1e1e;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #b6b6b6;
+    --text: #333;
+    --footertext: #d0d0d0;
+    --link: rgb(0, 20, 250);
   }
 }
 
@@ -14,12 +20,15 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  line-height: 150%;
+  /* font-family: Arial, Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,9 +39,36 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin: 16px 0 16px 0;
+}
+
 a {
-  color: inherit;
+  color: var(--link);
+  font-weight: 600;
   text-decoration: none;
+}
+
+.businesscard {
+  background: var(--foreground);
+  color: var(--text);
+  position: absolute;
+  height: 500px;
+  min-width: 320px;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 2rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 4rem;
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--footertext);
 }
 
 @media (prefers-color-scheme: dark) {

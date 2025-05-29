@@ -1,0 +1,30 @@
+.mwg_effect007 {
+    position: relative;
+}
+
+.pinHeight {
+    height: 400vh;
+    position: relative;
+}
+
+.container {
+    height: 100vh;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+.circle {
+    width: 300%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: -100%;
+}
+
+.media {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
