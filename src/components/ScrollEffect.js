@@ -41,8 +41,8 @@ const ScrollEffect = () => {
             initial="hidden"
             whileInView="visible"
             whileHover={{
+                scale: 1.03,
                 clipPath: "polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%)",
-                scale: 1.1,
                 transition: { ease:["easeOut", "easeIn"], duration: .5 }
             }}
             variants={boxVariants}  
@@ -115,9 +115,9 @@ const Info = styled(motion.div)`
     font-size: 1rem;
     color: white;
     background: black;
-    height: 40px;
+    min-height: 40px;
     width: fit-content;
-    padding: 1rem 2rem;
-    clip-path: circle(0% at 50% 50%); // initially hidden
+    padding: 1rem 2.2rem;
+    clip-path: circle(50% at 100% 50%);
     will-change: transform, clip-path;
 `;

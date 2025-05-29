@@ -28,22 +28,23 @@ export default function Home() {
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
         <ScrollEffect />
 
-        <motion.div className="businesscard">
-          <span>
-            <h1>Am Sudhaus</h1>
-            <p>Fördergesellschaft für<br/>
-            zeitgenössische Kunst gGmbH
-            </p>
-          </span>
-          <span>
-            <p>Am Sudhaus 3<br/>
-              12053 Berlin
-            </p>
-            <a href="mailto:info@amsudhaus-berlin.de">info@amsudhaus-berlin.de</a>
-          </span>
-        </motion.div>
+        <Wrapper>
+          <div className="businesscard">
+            <span>
+              <h1>Am Sudhaus</h1>
+              <p>Fördergesellschaft für<br/>
+              zeitgenössische Kunst gGmbH
+              </p>
+            </span>
+            <span>
+              <p>Am Sudhaus 3<br/>
+                12053 Berlin
+              </p>
+              <a href="mailto:info@amsudhaus-berlin.de">info@amsudhaus-berlin.de</a>
+            </span>
+          </div>
+        </Wrapper>
         
-
         <footer>
           <p>&copy; 2025</p>
         </footer>
@@ -51,3 +52,11 @@ export default function Home() {
     </>
   );
 }
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
