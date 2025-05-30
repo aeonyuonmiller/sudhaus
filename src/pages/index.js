@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const variants = {
+  hidden: { clipPath: 'polygon(100% 100%, 100% 0%, 100% 100%, 0% 100%)' },
+  show: { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', transition: { staggerChildren: 0.05, delayChildren: 0, duration: 1 }},
+};
+
 export default function Home() {
   return (
     <>
@@ -29,7 +34,11 @@ export default function Home() {
         <ScrollEffect />
 
         <Wrapper>
-          <div className="businesscard">
+          <motion.div
+            variants={variants} 
+            initial="hidden"
+            animate="show"
+            className="businesscard">
             <span>
               <h1>Am Sudhaus</h1>
               <p>Fördergesellschaft für<br/>
@@ -42,7 +51,7 @@ export default function Home() {
               </p>
               <a href="mailto:info@amsudhaus-berlin.de">info@amsudhaus-berlin.de</a>
             </span>
-          </div>
+          </motion.div>
         </Wrapper>
         
         <footer>

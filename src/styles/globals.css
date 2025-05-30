@@ -4,6 +4,7 @@
   --text: #1e1e1e;
   --link: rgb(0, 30, 255);
   --footertext: #1e1e1e;
+  --ghost: rgba(0, 30, 255, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +14,7 @@
     --text: #333;
     --footertext: #d0d0d0;
     --link: rgb(0, 20, 250);
+    --ghost: rgba(0, 100, 255, 0.1);
   }
 }
 
@@ -33,6 +35,7 @@ body {
   /* font-family: Arial, Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-gutter: stable both-edges;
 }
 
 * {
@@ -51,6 +54,15 @@ a {
   color: var(--link);
   font-weight: 600;
   text-decoration: none;
+  padding: .8rem 1rem;
+  border-radius: 10px;
+  background: transparent;
+}
+
+a:hover {
+  background: var(--ghost);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .businesscard {
@@ -64,7 +76,8 @@ a {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 2rem 3.5rem 2rem;
+  margin-bottom: 16px;
 }
 
 footer {

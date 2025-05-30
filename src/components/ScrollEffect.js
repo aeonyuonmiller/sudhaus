@@ -10,7 +10,7 @@ const containerVariants = {
 const boxVariants = {
     hidden: {
         x: 150,
-        clipPath: 'polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%)',
+        clipPath: 'polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)',
     },
     visible: {
         x: 0,
@@ -36,8 +36,8 @@ const ScrollEffect = () => {
       initial="hidden"
       whileInView="visible"
       exit="hidden"
-    >
-      {images.map(({ src, width }, index) => (
+      >
+      {images.map(({ src, width, info }, index) => (
         <Box
             key={index}
             initial="hidden"
@@ -45,16 +45,16 @@ const ScrollEffect = () => {
             whileHover={{
                 scale: 1.03,
                 clipPath: "polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%)",
-                transition: { ease:["easeOut", "easeIn"], duration: .5 }
+                transition: { ease:["easeOut", "easeInOut"], duration: .5 }
             }}
             variants={boxVariants}  
-            viewport={{ once: false, amount: 0.01 }}
+            viewport={{ once: false, amount: 0 }}
             style={{ flex: `0 0 ${width}px` }}
         >
               <Image src={src} alt={`image-${index + 1}`} height={500} width={width} />
-              <Info>&copy; hmmmm…</Info>
-        </Box>
-      ))}
+              <Info>{info}</Info>
+          </Box>
+        ))}
     </ScrollFX>
   );
 };
@@ -74,7 +74,6 @@ const ScrollFX = styled.div`
   height: 100vh;
   left: 0;
   scroll-behavior: smooth;
-  scrollbar-gutter: stable both-edges;
 
   &::-webkit-scrollbar {
     height: 16px;
@@ -113,7 +112,7 @@ const Info = styled(motion.div)`
     position: absolute;
     display: grid;
     place-content: center;
-    bottom: 1rem;
+    bottom: -2rem;
     right : 1rem;
     font-size: 1rem;
     color: white;
@@ -121,6 +120,6 @@ const Info = styled(motion.div)`
     min-height: 40px;
     width: fit-content;
     padding: 1rem 2.2rem;
-    clip-path: circle(50% at 100% 50%);
+    clip-path: circle(100% at 50% 50%);
     will-change: transform, clip-path;
 `;
