@@ -9,11 +9,9 @@ const containerVariants = {
 
 const boxVariants = {
     hidden: {
-        x: 150,
         clipPath: 'polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)',
     },
     visible: {
-        x: 0,
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
         transition: {
             type: 'spring',

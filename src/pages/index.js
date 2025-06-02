@@ -18,7 +18,10 @@ const geistMono = Geist_Mono({
 
 const variants = {
   hidden: { clipPath: 'polygon(100% 100%, 100% 0%, 100% 100%, 0% 100%)' },
-  show: { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', transition: { staggerChildren: 0.05, delayChildren: 0, duration: 1 }},
+  show: {
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+    transition: { staggerChildren: 0.05, delayChildren: 0, duration: .6 }
+  },
 };
 
 export default function Home() {
