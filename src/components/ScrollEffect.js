@@ -24,6 +24,23 @@ const boxVariants = {
     },
 };
 
+const infoVariants = {
+    hidden: {
+      clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+      y: "50%"
+    },
+    visible: {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+        y: "0%",
+        transition: {
+          type: 'spring',
+          bounce: 0.1,
+          duration: .5,
+          delay: .05
+        },
+    },
+};
+
 const ScrollEffect = () => {
   const images = Array.from({ length: 12 }).map((_, i) => ({
     src: `/assets/medias/${i + 1}.jpg`,
@@ -54,7 +71,14 @@ const ScrollEffect = () => {
         >
               <Cursor />
               <Image src={src} alt={`image-${index + 1}`} height={500} width={width} />
-              <Info>{info} Something</Info>
+          <Info
+            as={motion.div}
+            variants={infoVariants}
+            initial="hidden"
+            whileInView="visible"
+          >
+            {info} Something &copy;
+          </Info>
           </Box>
         ))}
     </ScrollFX>
@@ -96,7 +120,7 @@ const Box = styled(motion.div)`
   place-items: center;
   scroll-snap-align: center;
   font-size: 1rem;
-  color: white;
+  /* color: white; */
   height: 55vh;
 
   clip-path: polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%); // initial fallback
@@ -113,14 +137,15 @@ const Box = styled(motion.div)`
 const Info = styled(motion.div)`
     position: absolute;
     display: grid;
-    place-content: center;
-    bottom: 40px;
-    right : 40px;
+    place-content: center end;
+    bottom: 1rem;
+    right : 1rem;
     font-size: 1rem;
-    color: var(--text);
-    background: var(--foreground);
+    color: var(--foreground);
+    background: var(--text);
     min-height: 80px;
-    width: 300px;
-    padding: 1rem 2.2rem;
+    max-height: 300px;
+    width: calc(100% - 2rem);
+    padding: 1rem 1.2rem;
     will-change: transform, clip-path;
 `;
