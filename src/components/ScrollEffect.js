@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Cursor from "@/components/Cursor"
 
 const containerVariants = {
   hidden: {},
@@ -49,6 +50,7 @@ const ScrollEffect = () => {
             viewport={{ once: false, amount: 0 }}
             style={{ flex: `0 0 ${width}px` }}
         >
+              <Cursor />
               <Image src={src} alt={`image-${index + 1}`} height={500} width={width} />
               <Info>{info}</Info>
           </Box>

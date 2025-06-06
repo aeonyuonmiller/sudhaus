@@ -1,10 +1,11 @@
 import Head from "next/head";
 // import Image from "next/image";
-import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import styled from "@emotion/styled";
+import { motion } from "motion/react";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import ScrollEffect from '@/components/ScrollEffect'
+import ScrollEffect from "@/components/ScrollEffect"
+import Cursor from "@/components/Cursor"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,10 +18,28 @@ const geistMono = Geist_Mono({
 });
 
 const variants = {
-  hidden: { clipPath: 'polygon(100% 100%, 100% 0%, 100% 100%, 0% 100%)' },
+  hidden: { clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)' },
   show: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-    transition: { staggerChildren: 0.05, delayChildren: 0, duration: .6 }
+    transition: { ease: [0.25, 0.1, 0.25, 1], staggerChildren: 0.05, delay: 0.5, duration: .9 }
+  },
+};
+
+const c1 = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 1.2, duration: 1 }
+  },
+};
+
+const c2 = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: .9, duration: 1 }
   },
 };
 
@@ -34,6 +53,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
+        {/* <Cursor/> */}
+
         <ScrollEffect />
 
         <Wrapper>
@@ -42,18 +63,18 @@ export default function Home() {
             initial="hidden"
             animate="show"
             className="businesscard">
-            <span>
+            <motion.span initial="hidden" animate="show" variants={c1}>
               <h1>Am Sudhaus</h1>
               <p>Fördergesellschaft für<br/>
               zeitgenössische Kunst gGmbH
               </p>
-            </span>
-            <span>
+            </motion.span>
+            <motion.span initial="hidden" animate="show" variants={c2}>
               <p>Am Sudhaus 3<br/>
                 12053 Berlin
               </p>
               <a href="mailto:info@amsudhaus-berlin.de">info@amsudhaus-berlin.de</a>
-            </span>
+            </motion.span>
           </motion.div>
         </Wrapper>
         
