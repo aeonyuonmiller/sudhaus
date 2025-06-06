@@ -14,7 +14,7 @@
     --text: #333;
     --footertext: #d0d0d0;
     --link: rgb(0, 20, 250);
-    --ghost: rgba(0, 100, 255, 0.1);
+    --ghost: hsla(216, 100%, 80%, 1);
   }
 }
 
@@ -51,18 +51,21 @@ h1 {
 }
 
 a {
+  display: inline-block;
+  margin-top: 0px;
   color: var(--link);
   font-weight: 600;
   text-decoration: none;
   padding: .8rem 1rem;
   border-radius: 10px;
   background: transparent;
+  transition: margin-top ease .5s;
 }
 
 a:hover {
+  margin-top: 4px;
   background: var(--ghost);
   font-weight: 600;
-  text-decoration: none;
 }
 
 .businesscard {

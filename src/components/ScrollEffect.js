@@ -10,10 +10,12 @@ const containerVariants = {
 
 const boxVariants = {
     hidden: {
-        clipPath: 'polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)',
+      clipPath: 'polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)',
+      y: "50%"
     },
     visible: {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        y: "0%",
         transition: {
             type: 'spring',
             bounce: 0.3,
@@ -41,18 +43,18 @@ const ScrollEffect = () => {
             key={index}
             initial="hidden"
             whileInView="visible"
-            whileHover={{
-                scale: 1.03,
-                clipPath: "polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%)",
-                transition: { ease:["easeOut", "easeInOut"], duration: .5 }
-            }}
+            // whileHover={{
+            //     // scale: 1.01,
+            //     clipPath: "polygon(1% 1%, 99% 1%, 99% 99%, 1% 99%)",
+            //     transition: { ease:["easeOut", "easeInOut"], duration: .5 }
+            // }}
             variants={boxVariants}  
             viewport={{ once: false, amount: 0 }}
             style={{ flex: `0 0 ${width}px` }}
         >
               <Cursor />
               <Image src={src} alt={`image-${index + 1}`} height={500} width={width} />
-              <Info>{info}</Info>
+              <Info>{info} Something</Info>
           </Box>
         ))}
     </ScrollFX>
@@ -112,14 +114,13 @@ const Info = styled(motion.div)`
     position: absolute;
     display: grid;
     place-content: center;
-    bottom: -2rem;
-    right : 1rem;
+    bottom: 40px;
+    right : 40px;
     font-size: 1rem;
-    color: white;
-    background: black;
-    min-height: 40px;
-    width: fit-content;
+    color: var(--text);
+    background: var(--foreground);
+    min-height: 80px;
+    width: 300px;
     padding: 1rem 2.2rem;
-    clip-path: circle(100% at 50% 50%);
     will-change: transform, clip-path;
 `;
