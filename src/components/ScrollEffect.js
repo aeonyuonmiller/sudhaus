@@ -138,14 +138,14 @@ const Info = styled(motion.div)`
     position: absolute;
     display: grid;
     place-content: center end;
-    bottom: 1rem;
-    right : 1rem;
+    bottom: 2rem;
+    right : 2rem;
+    left: 2rem;
     font-size: 1rem;
     color: var(--foreground);
     background: var(--text);
     min-height: 80px;
     max-height: 300px;
-    width: calc(100% - 2rem);
     padding: 1rem 1.2rem;
     will-change: transform, clip-path;
 `;
